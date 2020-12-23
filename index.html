@@ -89,46 +89,92 @@
       width: 250px
     }
     u,
-    .sidenav-open .sidenav-toggle {
+    .sidenav-open .sidenav-toggle,
+    .lang-en .toggle-en,
+    .lang-it .toggle-it {
       text-decoration: line-through;
+    }
+    .i18n {
+      display: none;
+    }
+    .lang-en .en.i18n,
+    .lang-it .it.i18n {
+      display: initial;
     }
   </style>
 </head>
 
-<body class="container-fluid">
+<body class="container-fluid lang-en">
   <div class="sidenav h-100 position-fixed">
     <div class="sidenav-content small p-3">
       <img class="et-brand mb-3" src="img/ereditappas-logo.svg">
-      <p>
-        è una sperimentazione che fonde
-        <i>Data Visualization</i>
-        e Comunicazione Visiva, per svelare quello che i numeri
-        <u>non</u>
-        dicono.
-      </p>
-      <p>
-        Vuole essere la memoria storica della manifestazione
-        <i>Sas Tappas</i> a Mamoiada, giunta alla 17<sup>a</sup>
-        edizione.
-      </p>
-      <p>
-        Qui ricreiamo l'esperienza di visitare la mostra fisica, composta da 17 poster, inagurata nel novembre 2020 ma subito chiusa causa
-        <i>Covid-19</i>
-      </p>
-      <p>
-        I dati raccolti verranno pubblicati in un catalogo <i>Open Data</i>.
-      </p>
-      <p>
-        <b>Buona visione, o lettura!</b>
-      </p>
-      <small class="d-block mt-5">* un progetto di
-        <a class="text-light" target="_blank" href="http://www.linkedin.com/in/maelius">Mauro Melis</a>
-        e <a class="text-light" target="_blank" href="http://www.linkedin.com/in/margheritadona">Margherita Donà</a>
-      </small>
+      <div class="i18n it">
+        <p>
+          è una sperimentazione che fonde
+          <i>Data Visualization</i>
+          e Comunicazione Visiva, per svelare quello che i numeri
+          <u>non</u>
+          dicono.
+        </p>
+        <p>
+          Vuole essere la memoria storica della manifestazione
+          <i>Sas Tappas</i> a Mamoiada, giunta alla 17<sup>a</sup>
+          edizione.
+        </p>
+        <p>
+          Qui ricreiamo l'esperienza di visitare la mostra fisica, composta da 17 poster, inagurata nel novembre 2020 ma subito chiusa causa
+          <i>Covid-19</i>
+        </p>
+        <p>
+          I dati raccolti verranno pubblicati in un catalogo <i>Open Data</i>.
+        </p>
+        <p>
+          <b>Buona visione, o lettura!</b>
+        </p>
+        <small class="d-block mt-5">* un progetto di
+          <a class="text-light" target="_blank" href="http://www.linkedin.com/in/maelius">Mauro Melis</a>
+          e <a class="text-light" target="_blank" href="http://www.linkedin.com/in/margheritadona">Margherita Donà</a>
+        </small>
+      </div>
+      <div class="i18n en">
+        <p>
+          is an experiment that blends
+          <i>Data Visualization</i>
+          and Visual Communication, to reveal what numbers do
+          <u>not</u>
+          say.
+        </p>
+        <p>
+          It wants to be the historical memory of the
+          <i>Sas Tappas</i> event in Mamoiada (Sardinia, Italy), now in its 17 <sup>th</sup>
+          edition.
+        </p>
+        <p>
+          Here we recreate the experience of visiting the physical exhibition, consisting of 17 posters, inaugurated in November 2020 but immediately closed due to
+          <i>Covid-19</i>.
+        </p>
+        <p>
+          The collected data will be published as an <i>Open Data</i> catalog.
+        </p>
+        <p>
+          <b>Enjoy the vision, or the reading!</b>
+        </p>
+        <small class="d-block mt-5">* a project by
+          <a class="text-light" target="_blank" href="http://www.linkedin.com/in/maelius">Mauro Melis</a>
+          and <a class="text-light" target="_blank" href="http://www.linkedin.com/in/margheritadona">Margherita Donà</a>
+        </small>
+      </div>
+      <div class="mt-4">
+        <a href="javascript:void(0)" class="text-light font-italic toggle-en" onclick="toggleLang('en')">English</a>
+        <a href="javascript:void(0)" class="text-light font-italic toggle-it" onclick="toggleLang('it')">Italiano</a>
+      </div>
     </div>
   </div>
   <img class="et-brand position-absolute mt-3" src="img/ereditappas-logo.svg">
-  <a href="javascript:void(0)" class="sidenav-toggle position-absolute right-0 p-3 text-light font-italic" onclick="toggleNav()">about</a>
+  <a href="javascript:void(0)" class="sidenav-toggle position-absolute right-0 p-3 text-light font-italic" onclick="toggleNav()">
+    <span class="i18n en">about</span>
+    <span class="i18n it">info</span>
+  </a>
   <div class="carousel-wrapper d-flex justify-content-center align-items-center">
     <div class="frame">
       <div id="carousel" class="carousel slide carousel-fade" data-ride="carousel">
@@ -216,6 +262,10 @@
   <script>
     function toggleNav() {
       document.body.classList.toggle("sidenav-open");
+    }
+    function toggleLang(lang) {
+      document.body.classList.toggle('lang-en');
+      document.body.classList.toggle('lang-it');
     }
   </script>
 </body>
